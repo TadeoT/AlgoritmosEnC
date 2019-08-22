@@ -1,0 +1,9 @@
+
+Formula F(n) = O(f(n)) -> E c,n0 > 0      T(n) <= c*f(n)    n >= n0 
+ donde c es una constante multiplicativa y n0 es un numero apartir del cual la funcion f(n) empieza a ser mayor a T(n)
+ 
+ 
+ a = n^2 + 2*4^n + 5^
+ 	= n^2 + 2*4^n
+	= n^2 + ^n
+	= 4^n

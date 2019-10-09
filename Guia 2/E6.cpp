@@ -25,7 +25,8 @@ void reemplaza(list<int> &L, list<int>& SEQ,list<int> &REEMP){
 			iSeq++;
 			if(*i==*(--SEQ.end())){
 				i=L.erase(principio,++i);
-				
+				L.insert(i,REEMP.begin(),REEMP.end());
+				iSeq = ++SEQ.begin();
 			}
 			}
 		}
@@ -36,8 +37,8 @@ void reemplaza(list<int> &L, list<int>& SEQ,list<int> &REEMP){
 }
 
 int main(int argc, char *argv[]) {
-	list<int> L {1,2,3,4,5,1,1,2,3,4,5,1};
-	list<int> seq {4,5,1};
+	list<int> L {1,2,3,4,5,4,1,2,3,4,5,4,1,2,3,4,5};
+	list<int> seq {4,5,4,1};
 	list<int> reemp {9,7,3};
 	reemplaza(L,seq,reemp);
 	for (auto i:L){

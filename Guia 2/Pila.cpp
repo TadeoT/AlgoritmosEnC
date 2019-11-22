@@ -18,6 +18,7 @@ int main(int argc, char *argv[]) {
 	S.push(Saux.top());Saux.pop();
 	S.push(Saux.top());Saux.pop();
 	
+	std::vector<int> v;
 	while (!S.empty()){
 		cout<<"Top: "<<S.top()<<endl;
 		S.pop();

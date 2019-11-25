@@ -1,33 +1,34 @@
+#include <cstddef>
 template<typename T>
-class list {
+class lista {
 private:
 	class cell{
-		friend class list;
+		friend class lista;
 		friend class iterator_t;
 		T elem;
 		cell *next;
-		cell():next (NULL);
-	}
+		cell():next (NULL){};
+	};
 	class iterator{
 	private:
-		friend class list;
+		friend class lista;
 		cell *ptr;
-		iterator (): ptr(NULL);	
+		iterator (): ptr(NULL){};	
 	public:
-		T & operator * (){ return ptr->next->elem}
-		T * operator -> (){ return & ptr->next->elem}
+		T & operator * (){ return ptr->next->elem;}
+		T * operator -> (){ return & ptr->next->elem;}
 		iterator operator ++ (){ ptr = ptr->next; return *this;}
-		bool operator == (iterator p) {return ptr == p.ptr};
-		bool operator != (iterator p) {return ptr != p.ptr};
-	}
+		bool operator == (iterator p) {return ptr == p.ptr;}
+		bool operator != (iterator p) {return ptr != p.ptr;}
+	};
 private:
 	cell *first, *last;
 
 public:
-	list(): first(new cell), last(first){};
-	~list(){ clear(), delete first;}
-	T retrieve(iterator p){return p->next->elem};
-	iterator next(iterator p){return p->next};
+	lista(): first(new cell), last(first){};
+	~lista(){ clear(), delete first;}
+	T retrieve(iterator p){return p->next->elem;}
+	iterator next(iterator p){return p->next;}
 	iterator prev(iterator p){
 		iterator q = begin();
 		while(q->next!=p){
@@ -46,8 +47,8 @@ public:
 		return p;
 	}
 
-	iterator begin(){return first};
-	iterator end(){return last};
+	iterator begin(){return first;}
+	iterator end(){return last;}
 	iterator erase(iterator p){
 		if(p->next==NULL) last = p;
 		iterator q = p->next;
@@ -58,7 +59,7 @@ public:
 	iterator erase(iterator p, iterator q){
 		if(p==q) return p;
 		iterator s,r = p->next;
-		while(while r != q->next){
+		while( r != q->next){
 			s = r->next;
 			delete r;
 			r = s;
@@ -70,4 +71,13 @@ public:
 
 
 
+};
+
+int main(){
+	
+	lista<int> nueva;
+	
+	
+	
+	return 0;
 }
